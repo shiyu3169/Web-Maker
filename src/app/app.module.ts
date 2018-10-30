@@ -19,6 +19,8 @@ import { WidgetHeadingComponent } from "./components/widget/widget-edit/widget-h
 import { WidgetImageComponent } from "./components/widget/widget-edit/widget-image/widget-image.component";
 import { WidgetYoutubeComponent } from "./components/widget/widget-edit/widget-youtube/widget-youtube.component";
 
+import { UserService } from "./services/user.service.client";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,7 @@ import { WidgetYoutubeComponent } from "./components/widget/widget-edit/widget-y
     WidgetYoutubeComponent
   ],
   imports: [BrowserModule, Routing],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
