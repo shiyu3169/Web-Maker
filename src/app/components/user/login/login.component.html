@@ -1,13 +1,20 @@
 <div class="container">
     <h1>Login</h1>
-    <form>
+    <form (ngSubmit)="login()" #myForm="ngForm">
+        <div *ngIf="errorFlag" class="alert alert-danger">The username and password don't match our records, please try
+            it again</div>
+
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="Username">
+            <input class="form-control" required name="username" [(ngModel)]="username" type="text" placeholder="Username"
+                #userInput="ngModel">
         </div>
+        <div *ngIf="userInput.invalid && userInput.touched" class="alert alert-warning">Please Enter Username</div>
         <div class="form-group">
-            <input class="form-control" type="password" placeholder="Password">
+            <input class="form-control" required name="password" [(ngModel)]="password" type="password" placeholder="Password"
+                #passwordInput="ngModel">
         </div>
-        <a routerLink="/user/:uid" class="btn btn-primary btn-block">Login</a>
+        <div *ngIf="passwordInput.invalid && passwordInput.touched" class="alert alert-warning">Please Enter Password</div>
+        <button [disabled]="myForm.invalid" type="submit" class="btn btn-primary btn-block">Login</button>
         <a routerLink="/register" class="btn btn-success btn-block">Register</a>
     </form>
 </div>

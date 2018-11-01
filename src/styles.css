@@ -42,3 +42,7 @@ a:hover {
   right: 15px;
   z-index: 2;
 }
+
+.bg-transparent {
+  background: transparent;
+}

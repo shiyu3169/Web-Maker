@@ -1,31 +1,35 @@
 <!-- Navbard -->
 <nav class="navbar navbar-dark bg-primary fixed-top">
-    <a class="navbar-brand" routerLink="/user/:uid"><b>Profile</b></a>
-    <a class="color-white" routerLink="/user/:uid"><i class="fas fa-check"></i></a>
+    <a class="navbar-brand" routerLink="/user/{{uid}}"><b>Profile</b></a>
+    <button [disabled]="myForm.invalid" class="btn bg-transparent color-white" type="submit" form="myForm"><i class="fas fa-check"></i></button>
 </nav>
 <br>
 <!-- Form -->
 <div class="container">
-    <form>
+    <form #myForm="ngForm" (ngSubmit)="update()" id="myForm">
+        <div *ngIf="userError" class="alert alert-danger">This username is taken, please try another one.</div>
+        <div *ngIf="successFlag" class="alert alert-success">Update Successfully</div>
         <!-- Username -->
         <div class="form-group">
             <label><b>Username</b></label>
-            <input class="form-control">
+            <input #userInput="ngModel" required class="form-control" [(ngModel)]="user.username" name="username"
+                placeholder="Enter Username...">
         </div>
+        <div *ngIf="userInput.invalid" class="alert alert-warning">Username can't be empty</div>
         <!-- Email -->
         <div class="form-group">
             <label><b>Email</b></label>
-            <input class="form-control">
+            <input class="form-control" name="email" [(ngModel)]="user.email" placeholder="Enter Email...">
         </div>
         <!-- First Name -->
         <div class="form-group">
             <label><b>First Name</b></label>
-            <input class="form-control">
+            <input class="form-control" name="firstName" [(ngModel)]="user.firstName" placeholder="Enter First Name...">
         </div>
         <!-- Last Name -->
         <div class="form-group">
             <label><b>Last Name</b></label>
-            <input class="form-control">
+            <input class="form-control" name="lastName" [(ngModel)]="user.lastName" placeholder="Enter Last Name...">
         </div>
         <!-- Buttons -->
         <a routerLink="/user/:uid/website" class="btn btn-primary btn-block">Websites</a>
@@ -35,6 +39,6 @@
 <!-- Footer -->
 <nav class="navbar navbar-dark bg-primary fixed-bottom">
     <div class="full-width">
-        <a class="color-white float-right" routerLink="/user/:uid"><i class="fas fa-user"></i></a>
+        <a class="color-white float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
     </div>
 </nav>
