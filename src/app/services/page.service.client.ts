@@ -4,11 +4,9 @@ import { Injectable } from "@angular/core";
 @Injectable()
 export class PageService {
   pages = [
-    { _id: "321", name: "Post 1", websiteId: "456", description: "Lorem" },
-
-    { _id: "432", name: "Post 2", websiteId: "456", description: "Lorem" },
-
-    { _id: "543", name: "Post 3", websiteId: "456", description: "Lorem" }
+    { _id: "321", name: "Post 1", websiteId: "456", title: "Lorem" },
+    { _id: "432", name: "Post 2", websiteId: "456", title: "Lorem" },
+    { _id: "543", name: "Post 3", websiteId: "456", title: "Lorem" }
   ];
 
   createPage(page) {
@@ -17,7 +15,7 @@ export class PageService {
     return page;
   }
 
-  findPageByWebsiteId(websiteId) {
+  findPagesByWebsiteId(websiteId) {
     let result = [];
     for (let i = 0; i < this.pages.length; i++) {
       if (this.pages[i].websiteId === websiteId) {
