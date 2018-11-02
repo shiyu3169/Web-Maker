@@ -22,8 +22,9 @@ export class WidgetService {
       _id: "345",
       widgetType: "IMAGE",
       pageId: "321",
-      width: "100%",
-      url: "http://lorempixel.com/400/200/"
+      width: "50%",
+      url:
+        "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"
     },
     {
       _id: "567",
@@ -36,13 +37,13 @@ export class WidgetService {
       _id: "678",
       widgetType: "YOUTUBE",
       pageId: "321",
-      width: "100%",
+      width: "60%",
       url: "https://youtu.be/AM2Ivdi9c4E"
     }
   ];
 
   createWidget(widget) {
-    widget._id = Math.random.toString();
+    widget._id = Math.random().toString();
     this.widgets.push(widget);
     return widget;
   }
@@ -57,7 +58,7 @@ export class WidgetService {
   }
   findWidgetById(widgetId) {
     for (let i = 0; i < this.widgets.length; i++) {
-      if ((widgetId = this.widgets[i]._id)) {
+      if (widgetId === this.widgets[i]._id) {
         return this.widgets[i];
       }
     }

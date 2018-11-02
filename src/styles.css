@@ -46,3 +46,7 @@ a:hover {
 .bg-transparent {
   background: transparent;
 }
+
+.pointer {
+  cursor: pointer;
+}
