@@ -8,7 +8,7 @@ export class WidgetService {
       _id: "123",
       widgetType: "HEADING",
       pageId: "321",
-      size: 2,
+      size: 2, 
       text: "GIZMODO"
     },
     {
