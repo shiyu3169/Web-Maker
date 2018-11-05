@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { PageService } from "src/app/services/page.service.client";
+import { Page } from "src/app/models/page.model.client";
 
 @Component({
   selector: "app-page-edit",
@@ -11,7 +12,7 @@ export class PageEditComponent implements OnInit {
   uid: string;
   wid: string;
   pid: string;
-  page;
+  page: Page;
   constructor(
     private activatedRoute: ActivatedRoute,
     private pageService: PageService,
