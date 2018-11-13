@@ -1,33 +1,55 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light fixed-top bg-light">
-    <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-chevron-left"></i></a>
-    <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}">Edit Widget</a>
-    <button form="myForm" class="color-black btn bg-transparent"><i class="fas fa-check"></i></button>
+  <a
+    class="color-black"
+    routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"
+    ><i class="fas fa-chevron-left"></i
+  ></a>
+  <a
+    class="navbar-brand"
+    routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/{{wgid}}"
+    >Edit Widget</a
+  >
+  <button form="myForm" class="color-black btn bg-transparent">
+    <i class="fas fa-check"></i>
+  </button>
 </nav>
 <!-- Form -->
 <div class="container">
-    <form id="myForm" #myForm="ngForm" (ngSubmit)="update()">
-        <!-- Name -->
-        <div class="form-group">
-            <label for="name"><b>Name</b></label>
-            <input placeholder="Widget Name" name="name" [(ngModel)]="widget.name" type="text" id="name" class="form-control">
-        </div>
-        <!-- Text -->
-        <div class="form-group">
-            <label for="text"><b>Text</b></label>
-            <input name="text" [(ngModel)]="widget.text" type="text" placeholder="Widget Text" id="text" class="form-control">
-        </div>
-        <!-- Size -->
-        <div class="form-group">
-            <label for="size"><b>Size</b></label>
-            <input name="size" [(ngModel)]="widget.size" type="number" id="size" class="form-control">
-        </div>
-        <button type="button" (click)="delete()" class="btn btn-danger btn-block">Delete</button>
-    </form>
+  <form id="myForm" #myForm="ngForm" (ngSubmit)="update()">
+    <!-- Text -->
+    <div class="form-group">
+      <label for="text"><b>Text</b></label>
+      <input
+        name="text"
+        [(ngModel)]="widget.text"
+        type="text"
+        placeholder="Widget Text"
+        id="text"
+        class="form-control"
+      />
+    </div>
+    <!-- Size -->
+    <div class="form-group">
+      <label for="size"><b>Size</b></label>
+      <input
+        name="size"
+        [(ngModel)]="widget.size"
+        type="number"
+        id="size"
+        class="form-control"
+      />
+    </div>
+    <button type="button" (click)="delete()" class="btn btn-danger btn-block">
+      Delete
+    </button>
+  </form>
 </div>
 <!-- Footer -->
 <footer class="navbar navbar-light fixed-bottom bg-light">
-    <div class="full-width">
-        <a class="color-black float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
-    </div>
+  <div class="full-width">
+    <a class="color-black float-right" routerLink="/user/{{uid}}"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
 </footer>
