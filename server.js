@@ -26,6 +26,8 @@ app.set("port", port);
 
 const server = http.createServer(app);
 
+require("./server/app")(app);
+
 app.get("*", function(req, res) {
   res.sendFile(path.join(__dirname, "dist/index.html"));
 });

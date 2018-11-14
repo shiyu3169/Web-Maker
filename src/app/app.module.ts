@@ -2,7 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { Routing } from "./app.routing";
 import { FormsModule } from "@angular/forms";
-
+import { HttpModule } from "@angular/http";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./components/user/login/login.component";
 import { RegisterComponent } from "./components/user/register/register.component";
@@ -44,7 +44,7 @@ import { WidgetService } from "./services/widget.service.client";
     WidgetImageComponent,
     WidgetYoutubeComponent
   ],
-  imports: [BrowserModule, Routing, FormsModule],
+  imports: [BrowserModule, Routing, FormsModule, HttpModule],
   providers: [UserService, WebsiteService, PageService, WidgetService],
   bootstrap: [AppComponent]
 })
