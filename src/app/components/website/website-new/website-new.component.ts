@@ -23,7 +23,11 @@ export class WebsiteNewComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.uid = params["uid"];
-      this.websites = this.websiteService.findWebsitesByUser(this.uid);
+      this.websiteService
+        .findWebsitesByUser(this.uid)
+        .subscribe((websites: Website[]) => {
+          this.websites = websites;
+        });
     });
   }
 
@@ -33,7 +37,8 @@ export class WebsiteNewComponent implements OnInit {
       description: this.description,
       developerId: this.uid
     };
-    this.websiteService.createWebsite(website);
-    this.router.navigate(["user", this.uid, "website"]);
+    this.websiteService.createWebsite(website).subscribe((website: Website) => {
+      this.router.navigate(["user", this.uid, "website"]);
+    });
   }
 }
