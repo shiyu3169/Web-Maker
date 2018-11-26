@@ -12,7 +12,11 @@ export class WebsiteEditComponent implements OnInit {
   websites: Website[];
   uid: string;
   wid: string;
-  website: Website;
+  website: Website = {
+    name: "",
+    description: "",
+    developerId: ""
+  };
 
   constructor(
     private websiteService: WebsiteService,
