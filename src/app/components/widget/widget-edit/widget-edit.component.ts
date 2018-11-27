@@ -10,7 +10,14 @@ import { Widget } from "src/app/models/widget.model.client";
 })
 export class WidgetEditComponent implements OnInit {
   wgid: string;
-  widget: Widget;
+  widget: Widget = {
+    text: "",
+    widgetType: "",
+    size: 0,
+    pageId: "",
+    url: "",
+    width: ""
+  };
   constructor(
     private activatedRoute: ActivatedRoute,
     private widgetService: WidgetService
@@ -19,7 +26,11 @@ export class WidgetEditComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.wgid = params["wgid"];
-      this.widget = this.widgetService.findWidgetById(this.wgid);
+      this.widgetService
+        .findWidgetById(this.wgid)
+        .subscribe((widget: Widget) => {
+          this.widget = widget;
+        });
     });
   }
 }
