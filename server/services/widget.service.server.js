@@ -1,4 +1,5 @@
 module.exports = function(app) {
+  const widgetModel = require("../models/widget/widget.model.server");
   // Create Widget
   app.post("/api/widget", createWidget);
   // Find All Widgets For Page
@@ -10,90 +11,34 @@ module.exports = function(app) {
   // Delete Widget
   app.delete("/api/widget/:wgid", deleteWidget);
 
-  widgets = [
-    {
-      _id: "123",
-      widgetType: "HEADING",
-      pageId: "321",
-      size: 2,
-      text: "GIZMODO"
-    },
-    {
-      _id: "234",
-      widgetType: "HEADING",
-      pageId: "321",
-      size: 4,
-      text: "Lorem ipsum"
-    },
-    {
-      _id: "345",
-      widgetType: "IMAGE",
-      pageId: "321",
-      width: "50%",
-      url:
-        "https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg"
-    },
-    {
-      _id: "567",
-      widgetType: "HEADING",
-      pageId: "321",
-      size: 4,
-      text: "Lorem ipsum"
-    },
-    {
-      _id: "678",
-      widgetType: "YOUTUBE",
-      pageId: "321",
-      width: "60%",
-      url: "https://youtu.be/AM2Ivdi9c4E"
-    }
-  ];
-
-  function createWidget(req, res) {
+  async function createWidget(req, res) {
     let widget = req.body;
-    widget._id = Math.random().toString();
-    widgets.push(widget);
-    res.json(widget);
+    const data = await widgetModel.createWidget(widget);
+    res.json(data);
   }
 
-  function findAllWidgetsForPage(req, res) {
-    let result = [];
+  async function findAllWidgetsForPage(req, res) {
     const pid = req.params["pid"];
-    for (let i = 0; i < widgets.length; i++) {
-      if (widgets[i].pageId === pid) {
-        result.push(widgets[i]);
-      }
-    }
-    res.json(result);
+    const data = await widgetModel.findAllWidgetsForPage(pid);
+    res.json(data);
   }
 
-  function selectWidgetById(wgid) {
-    for (let i = 0; i < widgets.length; i++) {
-      if (widgets[i]._id === wgid) {
-        return widgets[i];
-      }
-    }
-  }
-
-  function findWidgetById(req, res) {
+  async function findWidgetById(req, res) {
     const wgid = req.params["wgid"];
-    const widget = selectWidgetById(wgid);
-    res.json(widget);
+    const data = await widgetModel.findById(wgid);
+    res.json(data);
   }
 
-  function updateWidget(req, res) {
+  async function updateWidget(req, res) {
     const widget = req.body;
-    const oldWidget = selectWidgetById(widget._id);
-    const index = widgets.indexOf(oldWidget);
-    this.widgets[index] = widget;
-    res.json(widget);
+    const wgid = widget._id;
+    const data = await widgetModel.updateWidget(wgid, widget);
+    res.json(data);
   }
 
-  function deleteWidget(req, res) {
+  async function deleteWidget(req, res) {
     const wgid = req.params["wgid"];
-    const widget = selectWidgetById(wgid);
-    const index = widgets.indexOf(widget);
-    widgets.splice(index, 1);
-    res.json(widgets);
+    const data = await widgetModel.deleteWidget(wgid);
+    res.json(data);
   }
 };
