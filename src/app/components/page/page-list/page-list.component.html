@@ -1,21 +1,35 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light fixed-top bg-light">
-    <a class="color-black" routerLink="/user/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
-    <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page	">Pages</a>
-    <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/new"><i class="fas fa-plus"></i></a>
+  <a class="color-black" routerLink="/user/{{uid}}/website"
+    ><i class="fas fa-chevron-left"></i
+  ></a>
+  <a class="navbar-brand" routerLink="/user/{{uid}}/website/{{wid}}/page	"
+    >Pages</a
+  >
+  <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/new"
+    ><i class="fas fa-plus"></i
+  ></a>
 </nav>
 <!-- List -->
 <div class="container">
-    <ul class="list-group">
-        <li class="list-group-item" *ngFor="let page of pages">
-            <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">{{page.name}}</a>
-            <a class="float-right" routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}"><i class="fas fa-cog"></i></a>
-        </li>
-    </ul>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let page of pages">
+      <a routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}/widget">{{
+        page.name
+      }}</a>
+      <a
+        class="float-right"
+        routerLink="/user/{{uid}}/website/{{wid}}/page/{{page._id}}"
+        ><i class="fas fa-cog"></i
+      ></a>
+    </li>
+  </ul>
 </div>
 <!-- Footer -->
 <footer class="navbar navbar-light fixed-bottom bg-light">
-    <div class="full-width">
-        <a class="color-black float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
-    </div>
+  <div class="full-width">
+    <a class="color-black float-right" routerLink="/profile"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
 </footer>

@@ -1,27 +1,65 @@
 <!-- Navbar -->
 <nav class="navbar navbar-light fixed-top bg-light">
-    <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page"><i class="fas fa-chevron-left"></i></a>
-    <a class="navbar-brand" href="/user/{{uid}}/website/{{wid}}/page/new">New Page</a>
-    <button [disabled]="myForm.invalid" class="color-black btn bg-transparent" form="myForm" type="submit"><i class="fas fa-check"></i></button>
+  <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page"
+    ><i class="fas fa-chevron-left"></i
+  ></a>
+  <a class="navbar-brand" href="/user/{{uid}}/website/{{wid}}/page/new"
+    >New Page</a
+  >
+  <button
+    [disabled]="myForm.invalid"
+    class="color-black btn bg-transparent"
+    form="myForm"
+    type="submit"
+  >
+    <i class="fas fa-check"></i>
+  </button>
 </nav>
 <!-- Form -->
-<div class='container'>
-    <form id="myForm" #myForm="ngForm" (ngSubmit)="createPage()">
-        <div class="form-group">
-            <label for="name"><b>Name</b></label>
-            <input class="form-control" required name="name" [(ngModel)]="name" id="name" type="text" placeholder="Name of the page...">
-        </div>
-        <div class="form-group">
-            <label for="title"><b>Title</b></label>
-            <input class="form-control" name="title" [(ngModel)]="title" type="text" id="title" placeholder="Title of the page...">
-        </div>
-        <a routerLink="/user/{{uid}}/website/{{wid}}/page" class="btn btn-lg btn-warning">Cancel</a>
-        <button type="submit" [disabled]="myForm.invalid" class="btn btn-lg btn-success float-right">Submit</button>
-    </form>
+<div class="container">
+  <form id="myForm" #myForm="ngForm" (ngSubmit)="createPage()">
+    <div class="form-group">
+      <label for="name"><b>Name</b></label>
+      <input
+        class="form-control"
+        required
+        name="name"
+        [(ngModel)]="name"
+        id="name"
+        type="text"
+        placeholder="Name of the page..."
+      />
+    </div>
+    <div class="form-group">
+      <label for="title"><b>Title</b></label>
+      <input
+        class="form-control"
+        name="title"
+        [(ngModel)]="title"
+        type="text"
+        id="title"
+        placeholder="Title of the page..."
+      />
+    </div>
+    <a
+      routerLink="/user/{{uid}}/website/{{wid}}/page"
+      class="btn btn-lg btn-warning"
+      >Cancel</a
+    >
+    <button
+      type="submit"
+      [disabled]="myForm.invalid"
+      class="btn btn-lg btn-success float-right"
+    >
+      Submit
+    </button>
+  </form>
 </div>
 <!-- Footer -->
 <footer class="navbar navbar-light fixed-bottom bg-light">
-    <div class="full-width">
-        <a class="color-black float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
-    </div>
+  <div class="full-width">
+    <a class="color-black float-right" routerLink="/profile}"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
 </footer>

@@ -1,58 +1,96 @@
 <!-- Navbar -->
 <nav class="navbar navbar-dark bg-primary fixed-top row nav-height">
-    <!-- Left Nav -->
-    <div class="col-4 d-none d-sm-block">
-        <a class="color-white" routerLink="/user/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
-        <a class="color-white padding-left" routerLink="/user/{{uid}}/website/new">
-            <h5 class='display-inline'>Websites</h5>
-        </a>
-        <a class="color-white float-right" routerLink="/user/{{uid}}/website/new"><i class="fas fa-plus"></i></a>
-    </div>
-    <!-- Right Nav -->
-    <div class="col-sm-8">
-        <a class="color-white d-sm-none" routerLink="/user/{{uid}}/website"><i class="fas fa-chevron-left"></i></a>
-        <a class="color-white padding-left" routerLink="/user/{{uid}}/website/new">
-            <h5 class="display-inline">New Website</h5>
-        </a>
-        <button type="submite" form="myForm" class="color-white float-right btn bg-transparent"><i class="fas fa-check"></i></button>
-    </div>
+  <!-- Left Nav -->
+  <div class="col-4 d-none d-sm-block">
+    <a class="color-white" routerLink="/user/{{uid}}/website"
+      ><i class="fas fa-chevron-left"></i
+    ></a>
+    <a class="color-white padding-left" routerLink="/user/{{uid}}/website/new">
+      <h5 class="display-inline">Websites</h5>
+    </a>
+    <a class="color-white float-right" routerLink="/user/{{uid}}/website/new"
+      ><i class="fas fa-plus"></i
+    ></a>
+  </div>
+  <!-- Right Nav -->
+  <div class="col-sm-8">
+    <a class="color-white d-sm-none" routerLink="/user/{{uid}}/website"
+      ><i class="fas fa-chevron-left"></i
+    ></a>
+    <a class="color-white padding-left" routerLink="/user/{{uid}}/website/new">
+      <h5 class="display-inline">New Website</h5>
+    </a>
+    <button
+      type="submite"
+      form="myForm"
+      class="color-white float-right btn bg-transparent"
+    >
+      <i class="fas fa-check"></i>
+    </button>
+  </div>
 </nav>
 <!-- List & Form -->
 <div class="row">
-    <!-- Left List -->
-    <div class="col-4 d-none d-sm-block">
-        <div class="container-fluid">
-            <ul class="list-group">
-                <li class="list-group-item" *ngFor="let website of websites">
-                    <a routerLink="/user/{{uid}}/website/{{website._id}}/page">{{website.name}}</a>
-                    <a class="float-right" routerLink="/user/{{uid}}/website/{{website._id}}"><i class="fas fa-cog"></i></a>
-                </li>
-            </ul>
-        </div>
+  <!-- Left List -->
+  <div class="col-4 d-none d-sm-block">
+    <div class="container-fluid">
+      <ul class="list-group">
+        <li class="list-group-item" *ngFor="let website of websites">
+          <a routerLink="/user/{{uid}}/website/{{website._id}}/page">{{
+            website.name
+          }}</a>
+          <a
+            class="float-right"
+            routerLink="/user/{{uid}}/website/{{website._id}}"
+            ><i class="fas fa-cog"></i
+          ></a>
+        </li>
+      </ul>
     </div>
-    <!-- Right Form -->
-    <div class="col-sm-8">
-        <div class="container-fluid">
-            <form id="myForm" #myForm="ngForm" (ngSubmit)="createWebsite()">
-                <div class='form-group'>
-                    <label for="name"><b>Name</b></label>
-                    <input [(ngModel)]="name" name="name" id="name" required class="form-control" type="text"
-                        placeholder="Name of the Website">
-                </div>
-                <div class='form-group'>
-                    <label for="description"><b>Description</b></label>
-                    <textarea [(ngModel)]="description" name="description" id="description" rows="5" class="form-control"
-                        type="text" placeholder="Describe the Website"></textarea>
-                </div>
-                <a routerLink="/user/{{uid}}/website" class="btn btn-lg btn-warning">Cancel</a>
-                <button type="submit" class="btn btn-lg btn-success float-right">Submit</button>
-            </form>
+  </div>
+  <!-- Right Form -->
+  <div class="col-sm-8">
+    <div class="container-fluid">
+      <form id="myForm" #myForm="ngForm" (ngSubmit)="createWebsite()">
+        <div class="form-group">
+          <label for="name"><b>Name</b></label>
+          <input
+            [(ngModel)]="name"
+            name="name"
+            id="name"
+            required
+            class="form-control"
+            type="text"
+            placeholder="Name of the Website"
+          />
         </div>
+        <div class="form-group">
+          <label for="description"><b>Description</b></label>
+          <textarea
+            [(ngModel)]="description"
+            name="description"
+            id="description"
+            rows="5"
+            class="form-control"
+            type="text"
+            placeholder="Describe the Website"
+          ></textarea>
+        </div>
+        <a routerLink="/user/{{uid}}/website" class="btn btn-lg btn-warning"
+          >Cancel</a
+        >
+        <button type="submit" class="btn btn-lg btn-success float-right">
+          Submit
+        </button>
+      </form>
     </div>
+  </div>
 </div>
 <!-- Footer -->
 <nav class="navbar navbar-dark bg-primary fixed-bottom">
-    <div class="full-width">
-        <a class="color-white float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
-    </div>
+  <div class="full-width">
+    <a class="color-white float-right" routerLink="/profile"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
 </nav>

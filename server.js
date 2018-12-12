@@ -3,6 +3,32 @@ const app = express();
 const bodyParser = require("body-parser");
 const http = require("http");
 const path = require("path");
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const passport = require("passport");
+
+app.use(cookieParser());
+
+if (process.env.SESSION_SECRET) {
+  app.use(
+    session({
+      secret: process.env.SESSION_SECRET,
+      resave: true,
+      saveUninitialized: true
+    })
+  );
+} else {
+  app.use(
+    session({
+      secret: "local-cookie",
+      resave: true,
+      saveUninitialized: true
+    })
+  );
+}
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -11,7 +37,7 @@ app.use(express.static(path.join(__dirname, "dist")));
 
 // CORS - Cross Origin Resource Sharing
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", "http://localhost:4200");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"

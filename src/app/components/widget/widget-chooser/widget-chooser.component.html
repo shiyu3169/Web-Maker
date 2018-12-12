@@ -1,26 +1,41 @@
 <!-- Navbar -->
 <nav class="navbar-light fixed-top bg-light">
-    <a class="color-black" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"><i class="fas fa-chevron-left"></i></a>
-    <a class="navbar-brand padding-left" routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new">Choose
-        Widget</a>
+  <a
+    class="color-black"
+    routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget"
+    ><i class="fas fa-chevron-left"></i
+  ></a>
+  <a
+    class="navbar-brand padding-left"
+    routerLink="/user/{{uid}}/website/{{wid}}/page/{{pid}}/widget/new"
+    >Choose Widget</a
+  >
 </nav>
 <!-- List -->
 <div class="container">
-    <ul class="list-group-flush">
-        <li class="list-group-item"><span (click)="create('HEADING')" class='pointer'>Heading</span></li>
-        <li class="list-group-item"><a>Label</a></li>
-        <li class="list-group-item"><a>Text Input</a></li>
-        <li class="list-group-item"><a>Link</a></li>
-        <li class="list-group-item"><a>Button</a></li>
-        <li class="list-group-item"><span (click)="create('IMAGE')" class="pointer">Image</span></li>
-        <li class="list-group-item"><span (click)="create('YOUTUBE')" class="pointer">Youtube</span></li>
-        <li class="list-group-item"><a>Data Table</a></li>
-        <li class="list-group-item"><a>Repeater</a></li>
-    </ul>
+  <ul class="list-group-flush">
+    <li class="list-group-item">
+      <span (click)="create('HEADING')" class="pointer">Heading</span>
+    </li>
+    <li class="list-group-item"><a>Label</a></li>
+    <li class="list-group-item"><a>Text Input</a></li>
+    <li class="list-group-item"><a>Link</a></li>
+    <li class="list-group-item"><a>Button</a></li>
+    <li class="list-group-item">
+      <span (click)="create('IMAGE')" class="pointer">Image</span>
+    </li>
+    <li class="list-group-item">
+      <span (click)="create('YOUTUBE')" class="pointer">Youtube</span>
+    </li>
+    <li class="list-group-item"><a>Data Table</a></li>
+    <li class="list-group-item"><a>Repeater</a></li>
+  </ul>
 </div>
 <!-- Footer -->
 <footer class="navbar navbar-light fixed-bottom bg-light">
-    <div class="full-width">
-        <a class="color-black float-right" routerLink="/user/{{uid}}"><i class="fas fa-user"></i></a>
-    </div>
+  <div class="full-width">
+    <a class="color-black float-right" routerLink="/profile"
+      ><i class="fas fa-user"></i
+    ></a>
+  </div>
 </footer>
